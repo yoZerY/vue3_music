@@ -4,7 +4,7 @@
       <div>
         <Slider v-if="sliders.length" :sliders="sliders"></Slider>
         <div class="recommend-list">
-          <h1 class="list-title">热门歌单推荐</h1>
+          <h1 v-if="albums.length" class="list-title">热门歌单推荐</h1>
           <div
             class="album-item"
             :key="item.id"
@@ -68,7 +68,7 @@ const playSong = (song) => {
       flex: 1;
       display: flex;
       flex-direction: column;
-      justify-content: end;
+      justify-content: flex-end;
       .album-name {
         color: $color-text;
         font-size: $font-size-medium-x;
