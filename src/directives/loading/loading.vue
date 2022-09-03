@@ -26,7 +26,7 @@ defineExpose({ setTitle })
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  background-color: rgba($color: #000000, $alpha: 0.7);
+  background-color: rgba($color: #000000, $alpha: 0.8);
   .title {
     padding-bottom: 6px;
   }
