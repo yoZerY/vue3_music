@@ -1,5 +1,5 @@
 <template>
-  <div class="recommend">
+  <div class="recommend" v-loading:[lText]="loading">
     <Scroll class="scroll-comp">
       <div>
         <Slider v-if="sliders.length" :sliders="sliders"></Slider>
@@ -11,7 +11,7 @@
             v-for="item in albums"
             @click="playSong(item)"
           >
-            <img width="50" height="50" :src="item.pic" />
+            <img width="50" height="50" v-lazy="item.pic" />
             <div class="album-info">
               <div class="album-name">
                 {{ item.username }}
@@ -27,13 +27,19 @@
   </div>
 </template>
 <script setup>
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, computed } from 'vue'
 import { getRecommend } from '@/service/recommend'
 import Slider from '@/components/Slider/index.vue'
 import Scroll from '@/components/Scroll/index.vue'
 
 const albums = ref([])
 const sliders = ref([])
+
+const lText = '加载中...'
+
+const loading = computed(
+  () => albums.value.length <= 0 || sliders.value.length <= 0
+)
 
 onMounted(async () => {
   const result = await getRecommend()

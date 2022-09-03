@@ -14,7 +14,13 @@ const routes = [
   {
     path: '/singer',
     name: 'singer',
-    component: () => import('../views/singer/index.vue')
+    component: () => import('../views/singer/index.vue'),
+    children: []
+  },
+  {
+    path: '/singer/:id',
+    name: 'singerDetail',
+    component: () => import('../views/singerDetail/index.vue')
   },
   {
     path: '/top-list',
