@@ -11,7 +11,7 @@
             v-for="item in albums"
             @click="playSong(item)"
           >
-            <img width="60" height="60" :src="item.pic" />
+            <img width="50" height="50" :src="item.pic" />
             <div class="album-info">
               <div class="album-name">
                 {{ item.username }}
